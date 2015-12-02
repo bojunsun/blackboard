@@ -38,6 +38,16 @@
                 </select>
             </div>
         </div>
+        <div ng-show="getStatus() == 'signup'" class="form-group">
+            <div class="btn-group" data-toggle="buttons">
+                <label>
+                    <input type="radio" id="1" name="isStudent" value="ture" checked="checked"/> I am a student
+                </label> 
+                <label style="margin-left:20px;">
+                    <input type="radio" id="2" name="isStudent" value="false" /> I am an instructor
+                </label>
+            </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
         <div ng-show="getStatus()=='login'">
             <button type="button" class="btn btn-default">
                 Login
