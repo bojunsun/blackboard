@@ -1,4 +1,4 @@
-blackboardApp.controller('HomeController', function ($scope) {
+blackboardApp.controller('HomeController', function ($scope, userService) {
 	
 	$scope.status = 'login';
     $scope.setStatus = function(status){
@@ -7,4 +7,14 @@ blackboardApp.controller('HomeController', function ($scope) {
     $scope.getStatus = function(){
         return $scope.status;  
     };
+
+    $scope.student = new Student;
+    $scope.doSignup = function (){
+		console.log($scope.student);
+
+		userService.signup($scope.student).then(function(res) {
+			console.log(res);
+		})
+
+	}
 });

@@ -8,29 +8,29 @@
         <div ng-show="getStatus() == 'signup'" class="form-group">
             <label for="useremail">First Name:</label>
             <div>
-                <input class="form-control" type="text" value="" placeholder="username"/>
+                <input class="form-control" type="text" value="" placeholder="username" ng-model="student.firstName"/>
             </div>
             <label for="useremail">Last Name:</label>
             <div>
-                <input class="form-control" type="text" value="" placeholder="username"/>
+                <input class="form-control" type="text" value="" placeholder="username" ng-model="student.lastName"/>
             </div>
         </div>
         <div class="form-group">
             <label for="useremail">Your Email:</label>
             <div>
-                <input class="form-control" type="text" value="" placeholder="email"/>
+                <input class="form-control" type="text" value="" placeholder="email" ng-model="student.email"/>
             </div>
         </div>
         <div class="form-group">
             <label for="password">Password:</label>
             <div>
-                <input class="form-control" type="password" value="" placeholder="password"/>
+                <input class="form-control" type="password" value="" placeholder="password" ng-model="student.password"/>
             </div>
         </div>
         <div ng-show="getStatus() == 'signup'" class="form-group">
             <label for="password">Your School:</label>
             <div>
-                <select class="form-control" type="password" value="" placeholder="password">
+                <select class="form-control" type="password" value="" placeholder="password" ng-model="student.schoolId">
                     <option>School 1</option>
                     <option>School 2</option>
                     <option>School 3</option>
@@ -48,7 +48,7 @@
             <a ng-click="setStatus('signup')">Don't have an account?</a>
         </div>
         <div ng-show="getStatus()=='signup'">
-            <button type="button" class="btn btn-default">
+            <button ng-click="doSignup()" type="button" class="btn btn-default">
                 Signup
             </button>
             &nbsp;
