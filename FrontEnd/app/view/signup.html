@@ -2,16 +2,16 @@
 
 <form method="" action="" name="">
 	<fieldset>
-		<input type="text" placeholder="Email" name="email" ng-model="signupData.email">
-		<input type="text" placeholder="Password" name="password" ng-model="signupData.password">
-		<input type="text" placeholder="firstName" name="" ng-model="signupData.firstName">
-		<input type="text" placeholder="lastName" name="" ng-model="signupData.lastName">
-		<input type="text" placeholder="schoolId" name="" ng-model="signupData.schoolId">
+		<input type="text" placeholder="Email" name="email" ng-model="student.email">
+		<input type="text" placeholder="Password" name="password" ng-model="student.password">
+		<input type="text" placeholder="firstName" name="" ng-model="student.firstName">
+		<input type="text" placeholder="lastName" name="" ng-model="student.lastName">
+		<input type="text" placeholder="schoolId" name="" ng-model="student.schoolId">
         <button ng-click="doSignup()">sign up</button>
     </fieldset>
 </form>
-{{signupData.email}}
-{{signupData.password}}
+{{student.email}}
+{{student.password}}
 
 <div footer></div>
 

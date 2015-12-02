@@ -15,6 +15,19 @@ blackboardApp.config(function ($stateProvider, $urlRouterProvider) {
     });
 });
 */
+function User() {
+    this.firstName = "";
+    this.lastName = "";
+    this.email = "";
+    this.password = "";
+    this.schoolId = 0;
+}
+
+function Student() {
+    User.call(this);
+    this.isStudent = true;
+}
+Student.prototype = Object.create(User.prototype);
 
 var blackboardApp = angular.module('blackboardApp', ['ui.router']);
 
