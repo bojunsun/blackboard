@@ -1,10 +1,16 @@
-<header style="padding:20 20 20 20;color:white;width:auto; height:80px; background-color:rgb(65,123,169); font-size:30px;">
-            MyWebSchool
+<header style="padding:20 20 20 20;color:white;width:auto; height:180px; background-color:rgb(65,123,169); font-size:30px;">
+    <h1 style="padding:20 0 0 40;">        
+    MyWebSchool
+    </h1>
 </header>
-<div class="container" style="width:1000px;" layout="row">
+<div class="container" style="width:1000px;min-height:300px;" layout="row">
     <div flex="40" layout="column" style="border-top:3px solid; margin-top:30px;">
         <div ng-show="getStatus() == 'signup'" class="form-group">
-            <label for="useremail">Your Name:</label>
+            <label for="useremail">First Name:</label>
+            <div>
+                <input class="form-control" type="text" value="" placeholder="username"/>
+            </div>
+            <label for="useremail">Last Name:</label>
             <div>
                 <input class="form-control" type="text" value="" placeholder="username"/>
             </div>
@@ -21,14 +27,33 @@
                 <input class="form-control" type="password" value="" placeholder="password"/>
             </div>
         </div>
-        <div>
+        <div ng-show="getStatus() == 'signup'" class="form-group">
+            <label for="password">Your School:</label>
+            <div>
+                <select class="form-control" type="password" value="" placeholder="password">
+                    <option>School 1</option>
+                    <option>School 2</option>
+                    <option>School 3</option>
+                    <option>School 4</option>
+                </select>
+            </div>
+        </div>
+        <div ng-show="getStatus()=='login'">
             <button type="button" class="btn btn-default">
                 Login
             </button>
             &nbsp;
-            <a>Forgot your password?</a>
+            <a >Forgot your password?</a>
             &nbsp;&nbsp;&nbsp;
             <a ng-click="setStatus('signup')">Don't have an account?</a>
+        </div>
+        <div ng-show="getStatus()=='signup'">
+            <button type="button" class="btn btn-default">
+                Signup
+            </button>
+            &nbsp;
+            &nbsp;&nbsp;&nbsp;
+            <a ng-click="setStatus('login')" style="padding-left:125px;">Already have an account?</a>
         </div>
     </div>
     <div flex="20"></div>
