@@ -1,4 +1,4 @@
-blackboardApp.controller('HomeController', function ($scope, userService) {
+blackboardApp.controller('HomeController', function ($scope, userService, $state) {
 	
 	$scope.status = 'login';
 	$scope.isStudent;
@@ -32,7 +32,7 @@ blackboardApp.controller('HomeController', function ($scope, userService) {
 			console.log("finis");
 			console.log(res);
 			if (res) {
-				
+				$state.go('course');
 			}
 		})
 	}

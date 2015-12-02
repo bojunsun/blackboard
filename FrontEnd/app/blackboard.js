@@ -32,6 +32,11 @@ blackboardApp.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: '/app/view/signup.html',
         controller: 'SignupController'
     });
+    $stateProvider.state('course', {
+        url: '/course',
+        templateUrl: '/app/view/course.html',
+        controller: 'CourseController'
+    });
 });
 
 
