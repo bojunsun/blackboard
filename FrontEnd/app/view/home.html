@@ -41,11 +41,12 @@
         <div ng-show="getStatus() == 'signup'" class="form-group">
             <div class="btn-group" data-toggle="buttons">
                 <label>
-                    <input type="radio" id="1" name="isStudent" value="ture" checked="checked"/> I am a student
+                    <input type="radio" id="1" name="isStudent" value="ture" checked="checked" ng-model="isStudent"/> I am a student
                 </label> 
                 <label style="margin-left:20px;">
-                    <input type="radio" id="2" name="isStudent" value="false" /> I am an instructor
+                    <input type="radio" id="2" name="isStudent" value="false" ng-model="isStudent"/> I am an instructor
                 </label>
+                {{isStudent}}
             </div><!-- /input-group -->
         </div><!-- /.col-lg-6 -->
         <div ng-show="getStatus()=='login'">
