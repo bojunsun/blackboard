@@ -1,20 +1,7 @@
-/*
-var blackboardApp = angular.module('blackboardApp', ['ui.router']);
+//define the global school
+var GlobalSchool = ["The George Washington University", "George Mason University", "Georgetown University", "Moses University"];
 
-blackboardApp.config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/home");
-    $stateProvider.state('home', {
-        url: '/home',
-        templateUrl: '/app/view/home.html',
-        controller: 'HomeController'
-    });
-    $stateProvider.state('signup', {
-        url: '/signup',
-        templateUrl: '/app/view/signup.html',
-        controller: 'SignupController'
-    });
-});
-*/
+
 function User() {
     this.firstName = "";
     this.lastName = "";
@@ -26,8 +13,10 @@ function User() {
 function Student() {
     User.call(this);
     this.isStudent = true;
+    //isStudent is true means it's a student or it's a instructor.
 }
 Student.prototype = Object.create(User.prototype);
+
 
 var blackboardApp = angular.module('blackboardApp', ['ui.router']);
 

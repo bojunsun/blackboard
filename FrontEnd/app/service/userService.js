@@ -16,7 +16,10 @@ blackboardApp.factory('userService', function ($http) {
         return $http.post(host + '/user', {
             email: data.email,
             password: data.password,
-            username: data.username
+            firstName: data.firstName,
+            lastName: data.lastName,
+            schoolId: data.schoolId,
+            isStudent: data.isStudent
         }).then(function(res) {
             console.log(res);
             return res.data;
