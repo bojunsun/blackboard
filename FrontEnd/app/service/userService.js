@@ -29,9 +29,8 @@ blackboardApp.factory('userService', function ($http) {
 /*
     this.login = function(data) {
         console.log("login");
-        return $http.post(host + '/login', {
-            email: data.email,
-            password: data.password
+        return $http.get(host + '/users/' + data.email, {
+
         }).then(function(res){
             console.log(res);
             return res.data;
@@ -58,6 +57,8 @@ blackboardApp.factory('userService', function ($http) {
 
         return {
             showCurrentUser: function (currentUser) {
+                console.log("show");
+                console.log(currentUser);
                 $wrapper.html(applyTemplate(currentUserTemplate, currentUser));
             },
             showAllProfiles: function (profiles) {
@@ -129,18 +130,27 @@ blackboardApp.factory('userService', function ($http) {
 
     this.login = function(data) {
         console.log("login");
-        BlackboardService.login(data.email, data.password)
-            .done(function(user){
+        return BlackboardService.login(data.email, data.password)
+            .then(function(user){
                 console.log(user);
+                if (user) {
+                    return true;
+                } else {
+                    return false;
+                }
+                
+/*
                 BlackboardService.setCurrentUser(user);
                 UIService.showCurrentUser(user);
                 BlackboardService.getAllProfiles().done(function (profiles) {
                     UIService.showAllProfiles(profiles);
                 });
+*/
             })
             .fail(function (result) {
                 console.log(arguments);
             });
+            
     }
 
 

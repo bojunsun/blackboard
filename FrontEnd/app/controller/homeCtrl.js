@@ -29,7 +29,11 @@ blackboardApp.controller('HomeController', function ($scope, userService) {
 	//login for a student
 	$scope.doLogin = function() {
 		userService.login($scope.student).then(function(res){
+			console.log("finis");
 			console.log(res);
+			if (res) {
+				
+			}
 		})
 	}
 });
