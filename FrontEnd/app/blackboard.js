@@ -12,7 +12,7 @@ function User() {
 
 function Student() {
     User.call(this);
-    this.isStudent = true;
+    this.isStudent = 1;
     //isStudent is true means it's a student or it's a instructor.
 }
 Student.prototype = Object.create(User.prototype);

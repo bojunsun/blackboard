@@ -9,11 +9,11 @@ blackboardApp.factory('userService', function ($http) {
 
     var userService = this;
 
-    var host = "http://api.hereseas.com";
+    var host = "http://localhost:8080/api/v1";
 
     this.signup = function(data) {
         console.log("signup");
-        return $http.post(host + '/user', {
+        return $http.post(host + '/users', {
             email: data.email,
             password: data.password,
             firstName: data.firstName,

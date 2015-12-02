@@ -15,7 +15,7 @@ blackboardApp.controller('HomeController', function ($scope, userService) {
     //sign up for a student
     $scope.doSignup = function (){
     	if ($scope.isStudent == "false") {
-	    	$scope.student.isStudent = false;
+	    	$scope.student.isStudent = 0;
 	    }
 	    $scope.student.schoolId = GlobalSchool.indexOf($scope.schoolName) + 1;
 
