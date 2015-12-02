@@ -26,5 +26,17 @@ blackboardApp.factory('userService', function ($http) {
         }, errResponseHandler);
     }
     
+
+    this.login = function(data) {
+        console.log("login");
+        return $http.post(host + '/login', {
+            email: data.email,
+            password: data.password
+        }).then(function(res){
+            console.log(res);
+            return res.data;
+        }, errResponseHandler);
+    }
+
     return userService;
 });

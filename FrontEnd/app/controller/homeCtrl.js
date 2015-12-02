@@ -12,6 +12,7 @@ blackboardApp.controller('HomeController', function ($scope, userService) {
 
     $scope.student = new Student;
 
+    //sign up for a student
     $scope.doSignup = function (){
     	if ($scope.isStudent == "false") {
 	    	$scope.student.isStudent = false;
@@ -23,6 +24,12 @@ blackboardApp.controller('HomeController', function ($scope, userService) {
 		userService.signup($scope.student).then(function(res) {
 			console.log(res);
 		})
+	}
 
+	//login for a student
+	$scope.doLogin = function() {
+		userService.login($scope.student).then(function(res){
+			console.log(res);
+		})
 	}
 });
