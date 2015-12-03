@@ -11,6 +11,8 @@ blackboardApp.factory('userService', function ($http) {
 
     var host = "http://localhost:8080/api/v1";
 
+    var student;
+
     this.signup = function(data) {
         console.log("signup");
         return $http.post(host + '/users', {
@@ -134,6 +136,7 @@ blackboardApp.factory('userService', function ($http) {
             .then(function(user){
                 console.log(user);
                 if (user) {
+                    student = user;
                     return true;
                 } else {
                     return false;
@@ -153,6 +156,9 @@ blackboardApp.factory('userService', function ($http) {
             
     }
 
+    this.getStudent = function(){
+        return student;
+    }
 
     return userService;
 });
