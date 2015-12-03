@@ -13,6 +13,8 @@ blackboardApp.factory('userService', function ($http) {
 
     var student;
 
+    var course;
+
     this.signup = function(data) {
         console.log("signup");
         return $http.post(host + '/users', {
@@ -125,6 +127,28 @@ blackboardApp.factory('userService', function ($http) {
                 return service.getUser(email).done(function(u) {
                     console.log(u);
                 });
+            },
+
+            getCourse: function(){
+                console.log("get");
+                return $.ajax({
+                    type: "GET",
+                    url: 'http://localhost:8080/api/v1/courses/instructors/gregwk@gwu.edu',
+                    dataType: "json",
+                    contentType: "application/json",
+                    headers: { "Authorization": auth }
+                });
+            },
+
+            loginGet: function(email, pw) {
+                console.log("log");
+                console.log(email);
+                console.log(pw);
+                auth = "Basic " + window.btoa(unescape(encodeURIComponent(email + ":" + pw)));
+                console.log(auth);
+                return service.getCourse(email).done(function(u) {
+                    console.log(u);
+                });
             }
         };
         return service;
@@ -159,6 +183,9 @@ blackboardApp.factory('userService', function ($http) {
     this.getStudent = function(){
         return student;
     }
+    this.getCurCourse = function(){
+        return course;
+    }
 
     this.changeProfile = function(data){
         console.log(data);
@@ -172,6 +199,33 @@ blackboardApp.factory('userService', function ($http) {
             console.log(res);
             return res.data;
         }, errResponseHandler);
+    }
+
+    this.getCourse = function(data) {
+        console.log("get");
+        console.log("login");
+        return BlackboardService.loginGet(data.email, data.password)
+            .then(function(user){
+                console.log(user);
+                if (user) {
+                    course = user;
+                    return true;
+                } else {
+                    return false;
+                }
+                
+/*
+                BlackboardService.setCurrentUser(user);
+                UIService.showCurrentUser(user);
+                BlackboardService.getAllProfiles().done(function (profiles) {
+                    UIService.showAllProfiles(profiles);
+                });
+*/
+            })
+            .fail(function (result) {
+                console.log(arguments);
+            });
+        
     }
 
     return userService;
