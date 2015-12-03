@@ -1,13 +1,13 @@
 <header class="container" style="padding:20 20 20 20;color:white;width:auto; height:180px; background-color:rgb(65,123,169); font-size:30px;" layout="column">
     <div style="padding-bottom:20px;float:none; margin-left:auto; margin-right:auto;text-align:center;width:400px;border-top:2px solid rgb(235,186,153);border-bottom:2px solid rgb(235,186,153);">
         <h3>        
-            MyWebSchool
+            {{curSchool}}
         </h3>
     </div>
     <div layout="row" style="margin-top:60px;" layout-align="space-between">
         <div >
             <span class="glyphicon glyphicon-user"></span>
-            <span style="font-size:20px;">Shuo Peng</span>
+            <span style="font-size:20px;">{{curStudent.firstName}} {{curStudent.lastName}}</span>
         </div>
         <div>
             <button ng-click="doLogout()" type="button" class="btn btn-default">
