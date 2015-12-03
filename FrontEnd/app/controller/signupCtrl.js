@@ -1,12 +1,12 @@
 blackboardApp.controller('SignupController', function ($scope, userService) {
-	$scope.student = new Student;
+	//$scope.student = new Student;
+	$scope.student = userService.getStudent();
 	console.log($scope.student);
-	$scope.signupData = {};
-	$scope.signupData.isStudent = true;
-	$scope.doSignup = function (){
+	
+	$scope.changePro = function (){
 		console.log($scope.student);
 
-		userService.signup($scope.student).then(function(res) {
+		userService.changeProfile($scope.student).then(function(res) {
 			console.log(res);
 		})
 

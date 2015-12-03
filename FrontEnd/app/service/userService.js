@@ -160,5 +160,19 @@ blackboardApp.factory('userService', function ($http) {
         return student;
     }
 
+    this.changeProfile = function(data){
+        console.log(data);
+        return $http.put(host + '/students/' + data.email, {
+            email: data.email,
+            password: data.password,
+            firstName: data.firstName,
+            lastName: data.lastName,
+            schoolId: data.schoolId
+        }).then(function(res){
+            console.log(res);
+            return res.data;
+        }, errResponseHandler);
+    }
+
     return userService;
 });
